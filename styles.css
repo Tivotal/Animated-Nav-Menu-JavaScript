@@ -1,0 +1,121 @@
+/* Created by Tivotal */
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(45deg, #4070f4, #ff0000);
+}
+
+.nav {
+  position: fixed;
+  top: 10%;
+  height: 20px;
+  width: 250px;
+  z-index: 100;
+}
+
+.nav .btn {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #4070f4;
+  padding: 5px 20px;
+}
+
+.nav .btn::before {
+  content: "Menu";
+  margin-right: 10px;
+}
+
+.nav.active .btn::before {
+  content: "Close";
+}
+
+.nav .btn span {
+  position: relative;
+  height: 50px;
+  width: 20px;
+}
+
+.nav .btn span::before,
+.nav .btn span::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #4070f4;
+  left: 0;
+  top: 20px;
+  transition: 0.5s;
+}
+
+.nav .btn span::after {
+  bottom: 20px;
+  top: unset;
+}
+
+.nav.active .btn span::before {
+  transform: rotate(225deg);
+  top: 24px;
+}
+
+.nav.active .btn span::after {
+  transform: rotate(135deg);
+  bottom: 24px;
+}
+
+.nav ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav ul li {
+  position: relative;
+  list-style: none;
+  transform: translateX(-250px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  transition-delay: calc(0.1s * var(--i));
+}
+
+.nav.active ul li {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0px);
+}
+
+.nav ul li a {
+  position: relative;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  height: 50px;
+  background: #fff;
+  color: #222;
+  transition: 0.5s;
+}
+
+.nav ul li a:hover {
+  color: #ff0000;
+  background: #f1f1f1;
+}
